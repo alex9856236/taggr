@@ -111,7 +111,7 @@ public class UI extends JFrame {
 					UI.this.dispose();
 					System.out.print("login button pressed");
 				}else{
-					textArea_1.setText("not possible");
+					textArea_1.setText("not possible ");
 					
 				}
 			}
