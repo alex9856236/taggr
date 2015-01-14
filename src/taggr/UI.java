@@ -24,12 +24,13 @@ public class UI extends JFrame {
 	JButton btnNewButton_1 = new JButton("\u767B\u5165");
 	JButton btnNewButton = new JButton("\u7B2C\u4E00\u6B21\u767B\u5165");
 
-
+	static UI frame = new UI();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
