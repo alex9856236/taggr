@@ -16,7 +16,7 @@ public class MainActivity {
 	static FileHandler fh;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		try{
 			if((fh = new FileHandler("C:/Temp/MyLogFile.log")) == null)
 				System.out.println("File not found");
@@ -46,34 +46,43 @@ public class MainActivity {
 				flag = false;
 		} while(flag);
 
+		input.close();
 	}
 	
 	public static void actionPerformed(int num){
 		//Handle open button
 		System.out.println("Entered actionPerformed");
 		if(num < 5){
-			System.out.println("Entered if");
-//			int returnVal = fileChooser.showOpenDialog(MainActivity.this);
-			int returnVal = fileChooser.showOpenDialog(fileChooser);
+			//System.out.println("Entered if");
+
+			//Set the fileChooser's multiSelect to true
+			fileChooser.setMultiSelectionEnabled(true);
 			
+			//Show the dialog; wait until dialog is closed
+			int returnVal = fileChooser.showOpenDialog(fileChooser);
+
+			//Retrieve the selected files
+			File[] files = fileChooser.getSelectedFiles();
+
 			if(returnVal == JFileChooser.APPROVE_OPTION){
-				System.out.println("Entered second if");
-				File file = fileChooser.getSelectedFile();
+				//System.out.println("Entered second if");
 				long time = System.currentTimeMillis();
-				String s;
 				
-				logger.info("Abs path: " + file.getAbsolutePath());
-				logger.info("Name: " + file.getName());
-				logger.info("Hash code: " + file.hashCode());
-				s = String.valueOf(file.lastModified());
-				logger.info(s);
-				logger.info("Time: " + time);
+				for(int i = 0; i < fileChooser.getSelectedFiles().length; i++){
+					logger.info("Abs path: " + files[i].getAbsolutePath());
+					logger.info("Name: " + files[i].getName());
+					logger.info("Hash code: " + files[i].hashCode());
+					//s = String.valueOf(file.lastModified());
+					//logger.info(s);
+					logger.info("Time: " + time);
+					
+					System.out.println("Abs path: " + files[i].getAbsolutePath());
+					System.out.println("Name: " + files[i].getName());
+					System.out.println("Hash code: " + files[i].hashCode());
+					//System.out.println(files[i].setLastModified(time));
+					System.out.println("Time: " + time);
+				}
 				
-				System.out.println("Abs path: " + file.getAbsolutePath());
-				System.out.println("Name: " + file.getName());
-				System.out.println("Hash code: " + file.hashCode());
-				System.out.println(file.setLastModified(time));
-				System.out.println("Time: " + time);
 				
 			} else {
 				System.out.println("Action cancelled by user.");

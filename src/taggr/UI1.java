@@ -16,7 +16,7 @@ public class UI1 extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTable table;
+	//private JTable filesAndTagsTable;
 	static UI1 frame1 = new UI1();
 	/**
 	 * Launch the application.
@@ -77,9 +77,12 @@ public class UI1 extends JFrame {
 		btnNewButton_4.setBounds(33, 195, 87, 23);
 		contentPane.add(btnNewButton_4);
 		
+		/*
 		table = new JTable();
 		table.setBounds(166, 31, 308, 187);
 		contentPane.add(table);
+		*/
+		//filesAndTagsTable = createTable(new GradesModel());
 		
 		JLabel label = new JLabel("\u6A94\u6848\u8DEF\u5F91");
 		label.setBounds(176, 10, 57, 15);
